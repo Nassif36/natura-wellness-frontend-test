@@ -1,0 +1,508 @@
+.buy-box-page {
+  box-sizing: border-box;
+  min-height: calc(100vh - 40px);
+  padding: 3rem 2rem 4rem;
+  background: #fbf8f3;
+  color: #1d2924;
+  font-family: Inter, sans-serif;
+}
+
+.buy-box-page *,
+.buy-box-page *::before,
+.buy-box-page *::after {
+  box-sizing: border-box;
+}
+
+.buy-box {
+  display: grid;
+  width: min(100%, 67rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 4rem;
+  margin: 0 auto;
+}
+
+.buy-box-image {
+  display: grid;
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid #e8dfd1;
+  border-radius: 1.2rem;
+  background: #fff;
+}
+
+.buy-box-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.buy-box-details {
+  min-width: 0;
+  padding-top: 0.05rem;
+}
+
+.buy-box-product-header {
+  padding-bottom: 1.55rem;
+  border-bottom: 1px solid #e5ddd1;
+}
+
+.buy-box-eyebrow {
+  margin: 0 0 0.75rem;
+  color: #728078;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.buy-box-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.88rem;
+}
+
+.rating-stars {
+  color: #d99727;
+  font-size: 1.15rem;
+  letter-spacing: 0.035em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.buy-box-rating strong {
+  margin-left: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.buy-box-rating a {
+  color: #718078;
+  text-underline-offset: 0.17em;
+}
+
+.buy-box-product-header h1 {
+  margin: 0 0 0.65rem;
+  color: #174433;
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+
+.buy-box-subtitle {
+  margin: 0;
+  color: #505b56;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.purchase-options {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin: 1.55rem 0 1.5rem;
+  padding: 0;
+  border: 0;
+}
+
+.purchase-option {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 3.75rem;
+  grid-template-columns: 1.15rem minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 0.75rem;
+  padding: 0.8rem 1.15rem;
+  border: 1px solid #e3daca;
+  border-radius: 0.75rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.purchase-option > input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.custom-radio {
+  position: relative;
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+  grid-column: 1;
+  border: 2px solid #a3aea7;
+  border-radius: 50%;
+}
+
+.purchase-option-selected .custom-radio {
+  border-color: #174433;
+}
+
+.purchase-option-selected .custom-radio::after {
+  position: absolute;
+  inset: 0.2rem;
+  border-radius: 50%;
+  background: #174433;
+  content: "";
+}
+
+.purchase-option:focus-within {
+  outline: 3px solid #9bb9a8;
+  outline-offset: 3px;
+}
+
+.option-label {
+  min-width: 0;
+  grid-column: 2;
+  color: #222b27;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.option-price {
+  display: flex;
+  grid-column: 3;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.08rem;
+  color: #202a26;
+  font-size: 1.2rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.option-price del {
+  color: #929b96;
+  font-size: 0.73rem;
+  font-weight: 400;
+}
+
+.purchase-option-subscription {
+  min-height: 11.25rem;
+  grid-template-columns: 1.15rem max-content minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  padding-top: 1.05rem;
+  padding-bottom: 1rem;
+  border: 2px solid #174433;
+  background: #f3f6f1;
+}
+
+.option-badge {
+  justify-self: start;
+  grid-column: 3;
+  grid-row: 1;
+  margin-top: 0.1rem;
+  margin-left: 0.15rem;
+  padding: 0.23rem 0.55rem;
+  border-radius: 99rem;
+  background: #f8e9be;
+  color: #805c0c;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.purchase-option-subscription .option-price {
+  grid-column: 4;
+  grid-row: 1 / span 2;
+  align-self: start;
+  padding-top: 0.02rem;
+}
+
+.purchase-option-subscription .option-label {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  padding-top: 0.05rem;
+}
+
+.subscription-option-details {
+  display: grid;
+  grid-column: 2 / -1;
+  grid-row: 2;
+  gap: 0.7rem;
+  margin-top: 0.95rem;
+}
+
+.frequency-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  color: #505b56;
+  font-size: 0.85rem;
+}
+
+.frequency-control select {
+  min-height: 2.1rem;
+  min-width: 7.5rem;
+  padding: 0.35rem 1.8rem 0.35rem 0.65rem;
+  border: 1px solid #cbd4ce;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: #222b27;
+  font: inherit;
+  font-size: 0.83rem;
+}
+
+.subscription-perks {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.subscription-perk {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #252f2a;
+  font-size: 0.83rem;
+  line-height: 1.35;
+}
+
+.perk-check {
+  color: #174433;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.buy-box-actions {
+  display: grid;
+  grid-template-columns: 7.95rem minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.quantity-control {
+  display: flex;
+  min-width: 0;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid #cbd4ce;
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.quantity-control button {
+  display: grid;
+  width: 2rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #34443c;
+  font: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.quantity-control button:disabled {
+  color: #aab3ae;
+  cursor: not-allowed;
+}
+
+.quantity-control output {
+  min-width: 1.2rem;
+  color: #202a26;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.add-to-cart {
+  display: flex;
+  min-width: 0;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  border: 0;
+  border-radius: 0.75rem;
+  background: #174433;
+  color: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background: #103729;
+}
+
+.cart-price-separator {
+  color: #a8c0b3;
+}
+
+.buy-box-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.1rem;
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.buy-box-trust li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #4c5953;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.trust-icon {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex: 0 0 auto;
+  color: #174433;
+}
+
+.buy-box-fine-print {
+  margin: 0.9rem 0 0;
+  color: #718078;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 60rem) {
+  .buy-box-page {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .buy-box {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 2rem;
+  }
+
+  .buy-box-actions {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: 0.55rem;
+  }
+
+  .buy-box-trust {
+    gap: 0.55rem 0.8rem;
+  }
+}
+
+@media (max-width: 45rem) {
+  .buy-box-page {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  .buy-box {
+    width: min(100%, 34rem);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .buy-box-image {
+    max-height: 26rem;
+  }
+
+  .buy-box-image img {
+    object-fit: contain;
+  }
+
+  .buy-box-details {
+    padding: 0;
+  }
+}
+
+@media (max-width: 25rem) {
+  .buy-box-page {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .buy-box-rating {
+    gap: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .rating-stars {
+    font-size: 1rem;
+  }
+
+  .buy-box-product-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .purchase-option {
+    column-gap: 0.55rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .purchase-option-subscription .option-label {
+    font-size: 0.85rem;
+  }
+
+  .purchase-option-subscription {
+    grid-template-columns: 1.15rem minmax(0, 1fr) auto;
+  }
+
+  .purchase-option-subscription .option-badge {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0.4rem 0 0;
+  }
+
+  .purchase-option-subscription .option-price {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .purchase-option-subscription .subscription-option-details {
+    grid-column: 2 / -1;
+    grid-row: 3;
+    margin-top: 0.75rem;
+  }
+
+  .option-price {
+    font-size: 1.05rem;
+  }
+
+  .buy-box-actions {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+  }
+
+  .add-to-cart {
+    gap: 0.35rem;
+    padding-right: 0.4rem;
+    padding-left: 0.4rem;
+    font-size: 0.82rem;
+  }
+
+  .buy-box-trust {
+    gap: 0.55rem 0.7rem;
+  }
+
+  .buy-box-trust li {
+    font-size: 0.7rem;
+  }
+}
